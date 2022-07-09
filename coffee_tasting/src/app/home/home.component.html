@@ -1,12 +1,47 @@
-<p>home works!</p>
-<h2>{{helloWorld}}</h2>
-
-<h2>{{hero.name}}</h2>
-
 <div class="">
-  <span>id: </span>{{hero.id}}
-  <br>
-  <span>Name: </span>{{hero.name | uppercase}}
-  <br>
-  <span>Super Power: </span>{{hero.superPower}}
+
+  <p>home works!</p>
+  <h2>{{helloWorld}}</h2>
+
+  <h2>{{hero.name}}</h2>
+
+  <div class="">
+    <span>id: </span>{{hero.id}}
+    <br>
+    <span>Name: </span>{{hero.name | uppercase}}
+    <br>
+  </div>
+
+  <div class="">
+    <label for="name">Hero name: </label>
+    <input id="name" [(ngModel)]="hero.name" placeholder="name">
+  </div>
+
+  <h2>My Heroes</h2>
+  <ul class="heroes">
+    <li>
+      <button type="button" name="button">
+        <span class="badge">{{hero.id}}</span>
+        <span class="name">{{hero.name}}</span>
+      </button>
+    </li>
+    <li *ngFor="let hero of heroes">
+      <button [class.selected]="hero === selectedHero" type="button" (click)="onSelect(hero)">
+        <span class="badge">{{hero.id}}</span>
+        <span class="name">{{hero.name}}</span>
+      </button>
+    </li>
+  </ul>
+
+  <div class="" *ngIf="selectedHero">
+    <h2>{{selectedHero.name | uppercase}} Details</h2>
+    <div class="">
+      id: {{selectedHero.id}}
+    </div>
+    <div class="">
+      <label for="hero-name">Hero name: </label>
+      <input id="hero-name" [(ngModel)]="selectedHero.name" placeholder="name">
+    </div>
+  </div>
+
 </div>
