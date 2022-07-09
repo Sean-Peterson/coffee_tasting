@@ -14,7 +14,8 @@ export class HomeComponent implements OnInit {
 
     hero: Hero = {
       id: 1,
-      name: 'Windstorm'
+      name: 'Morgan',
+      superPower: 'Invisibility'
     };
 
   ngOnInit(): void {
